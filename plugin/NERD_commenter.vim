@@ -86,7 +86,7 @@ let s:delimiterMap = {
     \ 'asp': { 'leftAlt': '%*','rightAlt': '*%', 'left': '%' },
     \ 'aspvbs': { 'left': '''', 'leftAlt': '<!--', 'rightAlt': '-->' },
     \ 'asterisk': { 'left': ';' },
-    \ 'asy': { 'left': '//' },
+    \ 'asy': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'atlas': { 'left': 'C', 'right': '$' },
     \ 'autohotkey': { 'left': ';' },
     \ 'autoit': { 'left': ';' },
