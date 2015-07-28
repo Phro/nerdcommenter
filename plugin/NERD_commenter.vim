@@ -532,19 +532,22 @@ function s:AppendCommentToLine()
     let lenRight = strlen(right)
 
     let isLineEmpty = strlen(getline(".")) == 0
-    let insOrApp = (isLineEmpty==1 ? 'i' : 'A')
+    let insOrApp = (isLineEmpty==1 ? 'i' : 'A ')
 
     "stick the delimiters down at the end of the line. We have to format the
     "comment with spaces as appropriate
-    execute ":normal! " . insOrApp . (isLineEmpty ? '' : ' ') . left . right . " "
+    execute ":normal! " . insOrApp . left . " " . right 
 
     " if there is a right delimiter then we gotta move the cursor left
     " by the len of the right delimiter so we insert between the delimiters
     if lenRight > 0
-        let leftMoveAmount = lenRight
+        let leftMoveAmount = lenRight - 1
         execute ":normal! " . leftMoveAmount . "h"
+        startinsert
+    else
+      "Keep the cursor to the right of the appended whitespace.
+      startinsert!
     endif
-    startinsert
 endfunction
 
 " Function: s:CommentBlock(top, bottom, lSide, rSide, forceNested ) {{{2
