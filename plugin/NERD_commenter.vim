@@ -635,7 +635,7 @@ function s:AppendCommentToLine()
 
     "stick the delimiters down at the end of the line. We have to format the
     "comment with spaces as appropriate
-    execute ":normal! " . insOrApp . (isLineEmpty ? '' : ' ') . left . " " . right 
+    execute ":normal! " . insOrApp . left . " " . right
 
     " if there is a right delimiter then we gotta move the cursor left
     " by the length of the right delimiter so we insert between the delimiters
